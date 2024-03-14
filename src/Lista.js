@@ -108,13 +108,13 @@ class Lista{
 
             let proximoNo = aux.proximo;
 
+            this.size--;
             if(proximoNo != null){
                 aux.proximo = proximoNo.proximo;
                 return;
             }
 
             aux.proximo = null;
-            this.size--;
         }
     }
 

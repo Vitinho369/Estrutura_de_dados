@@ -55,7 +55,7 @@ const rpn =  (expressao) =>{
     for(let i=0; i < expressao.length;i++){
 
         if(isOperacao(expressao[i])){
-                operadores.push(expressao[i]);
+            operadores.push(expressao[i]);
         }else if(expressao[i] !== "(" && expressao[i] !== ")"){
             expressaoRPN += expressao[i];
             count++;
