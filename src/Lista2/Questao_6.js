@@ -9,7 +9,7 @@ const inverterFila = (fila,filaInvertida) =>{
         filaInvertida.enqueue(guardaFront);
     }
 
-    return filaInvertida;
+    // return filaInvertida;
 };
 
 export default inverterFila;

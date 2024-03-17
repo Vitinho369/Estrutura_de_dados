@@ -24,8 +24,9 @@ test("Teste 1",
         fInverte.enqueue(3);
         fInverte.enqueue(2);
         fInverte.enqueue(1);
+        inverterFila(f,fParametro);
 
-        expect(inverterFila(f,fParametro)).toStrictEqual(fInverte);
+        expect(fParametro).toStrictEqual(fInverte);
     }
 );
 
@@ -55,7 +56,7 @@ test("Teste 2",
         fInverte.enqueue(8);
         fInverte.enqueue(9);
         fInverte.enqueue(10);
-
-        expect(inverterFila(f,fParametro)).toStrictEqual(fInverte);
+        inverterFila(f,fParametro)
+        expect(fParametro).toStrictEqual(fInverte);
     }
 );
