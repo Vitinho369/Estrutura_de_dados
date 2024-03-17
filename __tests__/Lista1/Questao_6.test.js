@@ -45,6 +45,6 @@ test("(a+b)+c/d",
 
 test("a*b-(c-d)+e",
     () =>{
-        expect(rpn("a*b-(c-d)+e")).toBe("ab*cd--e+");
+        expect(rpn("a*b-(c-d)+e")).toBe("ab*cd-e+-");
     }
 );

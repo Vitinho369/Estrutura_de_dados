@@ -46,43 +46,94 @@ const isOperacao = (operacao) =>{
     return operacao === "+" || operacao === "-" || operacao === "*" || operacao === "/" || operacao === "^";
 }
 
+// const rpn =  (expressao) =>{
+//     let expressaoRPN = "";
+//     let operadores = new Pilha();
+//     let count = 0;
+//     let abreParentese = false;
+
+//     for(let i=0; i < expressao.length;i++){
+
+//         if(isOperacao(expressao[i])){
+//             operadores.push(expressao[i]);
+//         }else if(expressao[i] !== "(" && expressao[i] !== ")"){
+//             expressaoRPN += expressao[i];
+//             count++;
+//         }
+
+//         // if((expressao[i] == "*" || expressao[i] == "/") && operadores.size() > 2){
+//         //     let aux = operadores.top();
+//         //     operadores.pop();
+//         //     let aux2 = operadores.top();
+//         //     operadores.pop()
+//         //     operadores.push(aux);
+//         //     operadores.push(aux2);
+//         //     count--;
+//         // }
+        
+//         if(((count === 2) || expressao[i] === ")") && !operadores.isEmpty()){
+//             count=0;
+//             expressaoRPN += operadores.top();
+//             operadores.pop();
+//         }else if(expressao[i] === "("){
+//             count=0;
+//         }
+//     }
+
+//     if(!operadores.isEmpty()){
+//         let tam = operadores.size();
+//         for(let i=0; i < tam;i++){
+//             expressaoRPN += operadores.top();
+//             operadores.pop();
+//         }
+//     }
+
+//     return expressaoRPN;
+// }
+
+
 const rpn =  (expressao) =>{
     let expressaoRPN = "";
     let operadores = new Pilha();
-    let count = 0;
-    let abreParentese = false;
+    let parentese = false;
 
     for(let i=0; i < expressao.length;i++){
 
-        if(isOperacao(expressao[i])){
-            operadores.push(expressao[i]);
-        }else if(expressao[i] !== "(" && expressao[i] !== ")"){
+       
+        if(expressao[i] != "(" && expressao[i] != ")" && !isOperacao(expressao[i])){
             expressaoRPN += expressao[i];
-            count++;
-        }
+        }else if(isOperacao(expressao[i])){
 
-        // if((expressao[i] == "*" || expressao[i] == "/") && operadores.size() > 2){
-        //     let aux = operadores.top();
-        //     operadores.pop();
-        //     let aux2 = operadores.top();
-        //     operadores.pop()
-        //     operadores.push(aux);
-        //     operadores.push(aux2);
-        //     count--;
-        // }
-        
-        if(((count === 2) || expressao[i] === ")") && !operadores.isEmpty()){
-            count=0;
+            if(expressao[i] !== "*" && expressao[i] !== "/" && expressao[i] !== "^" && !parentese){
+                let op = operadores.top();
+
+                if((op === "*" || op === "/" || op === "^")){
+                    operadores.pop();
+                    // operadores.push(op);
+                    expressaoRPN += op;
+                    if(!operadores.isEmpty()){
+                        expressaoRPN += operadores.top();
+                        operadores.pop();
+                    }
+                    operadores.push(expressao[i]);
+                }else{
+                    operadores.push(expressao[i]);
+                }
+            }else{
+                operadores.push(expressao[i]);
+            }
+            
+        }else if(expressao[i] == ")" && !operadores.isEmpty()){
+            parentese = true;
             expressaoRPN += operadores.top();
             operadores.pop();
-        }else if(expressao[i] === "("){
-            count=0;
         }
     }
-
+    console.log(operadores.toString())
     if(!operadores.isEmpty()){
         let tam = operadores.size();
         for(let i=0; i < tam;i++){
+            console.log(operadores.top())
             expressaoRPN += operadores.top();
             operadores.pop();
         }
@@ -92,3 +143,5 @@ const rpn =  (expressao) =>{
 }
 
 export default rpn;
+
+// console.log(rpn("3+4*5"));
