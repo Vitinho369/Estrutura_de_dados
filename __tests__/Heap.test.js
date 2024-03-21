@@ -79,6 +79,25 @@ test("Heap respeita a pririodade de Heap Máximo quando é adicionado novo eleme
 
 test("Teste HeapSort 1",
     () =>{
+        h.insert(90, 4);
+        h.insert(0,1);
+        h.insert(9, 3);
+        h.insert(100, 5);
+        h.insert(5,2);
+
+        let sorted = []
+
+        while(!h.isEmpty()){
+            sorted.push(h.remove());
+        }
+        
+        expect(sorted).toStrictEqual([100,90,9,5,0]);
+    }
+);
+
+
+test("Teste HeapSort 1 2",
+    () =>{
         h.insert(567,8);
         h.insert(90, 4);
         h.insert(5,2);
