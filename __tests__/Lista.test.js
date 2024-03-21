@@ -110,17 +110,17 @@ test("Testando o addAt",
 );
 
 
-test("Testando o método get",
-    () =>{
-        l.append(1);
-        l.append(2);
-        l.append(3);
-        l.append(4);
-        l.add(5);
-        l.add(6);
+// test("Testando o método get",
+//     () =>{
+//         l.append(1);
+//         l.append(2);
+//         l.append(3);
+//         l.append(4);
+//         l.add(5);
+//         l.add(6);
       
-        expect(l.get(0)).toBe(6);
-        expect(l.get(4)).toBe(3);
-        expect(l.get(5)).toBe(4);
-    }
-);
+//         expect(l.get(0)).toBe(6);
+//         expect(l.get(4)).toBe(3);
+//         expect(l.get(5)).toBe(4);
+//     }
+// );

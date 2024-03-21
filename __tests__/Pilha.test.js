@@ -1,4 +1,4 @@
-import Pilha from "../src/Pilha";
+import Pilha from "../src/Pilha2";
 
 let p;
 

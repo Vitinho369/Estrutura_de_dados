@@ -1,5 +1,4 @@
-import FilaCircular from "../src/FilaCircular";
-
+import FilaCircular from "../src/FilaCircular2";
 
 let fc;
 
@@ -95,5 +94,34 @@ test("Teste de vazio",
         expect(fc.isEmpty()).toBe(true);
         fc.enqueue("F");
         expect(fc.isEmpty()).toBe(false);
+    }
+);
+
+test("Procurando erros ",
+    () => {
+        fc.enqueue("A");
+        fc.enqueue("B");
+        fc.enqueue("C");
+        fc.enqueue("D");
+        fc.dequeue();
+        fc.dequeue();
+        fc.enqueue("E");
+        fc.enqueue("F");
+        fc.dequeue();
+        fc.dequeue();
+        fc.enqueue("A");
+        fc.enqueue("B");
+        console.log(fc.toString());
+    }
+);
+
+
+test("Procurando erros ",
+    () => {
+        fc.enqueue("A");
+        fc.enqueue("B");
+        fc.enqueue("C");
+        fc.enqueue("D");
+        console.log(fc.toString());
     }
 );
