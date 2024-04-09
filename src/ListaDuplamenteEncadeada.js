@@ -106,6 +106,19 @@ class ListaDuplamenteEncadeada{
         this.cabeca = null;
         this.cauda = null;
     }
+
+    search(dado){
+        let aux = this.cabeca;
+
+        while(aux != null){
+            if(aux.dado == dado)
+                return true;
+
+            aux = aux.proximo;
+        }
+
+        return false;
+    }
 }
 
 export default ListaDuplamenteEncadeada;
